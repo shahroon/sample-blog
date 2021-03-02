@@ -5,6 +5,6 @@ Rails.application.routes.draw do
     resources :posts
     root to: "dashboard#index"
   end
-
+  resources :posts
   root to: "blog#index"
 end
