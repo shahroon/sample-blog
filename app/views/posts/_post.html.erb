@@ -1,0 +1,13 @@
+<div class="post-preview">
+  <a href="post.html">
+    <h2 class="post-title"><%= link_to post.title, post_path(post), class: "post-title" -%>
+
+      <%= post.title %>
+    </h2>
+  </a>
+  <p class="post-meta">Posted by
+    <%= post.user.email %>
+    <%= post.created_at.strftime("Published on %B, %d - %Y") %></p>
+</div>
+<%= render partial: 'layouts/role_based', locals: { obj: post } %>
+<hr>
