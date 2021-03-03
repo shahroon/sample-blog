@@ -1,10 +1,10 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: %i[ show ]
   before_action :set_post, only: %i[ show edit update destroy ]
-
+  before_action :check_owner, only: %i[ edit update destroy ]
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    @posts = current_user.posts
   end
 
   # GET /posts/1 or /posts/1.json
@@ -67,5 +67,11 @@ class PostsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def post_params
       params.require(:post).permit(:title, :content, :user_id)
+    end
+
+    def check_owner
+      unless current_user.admin? || Post.find(params[:id]).is_owner(current_user)
+        redirect_back(fallback_location: "/", notice: "You are not authorized to access this area.")
+      end
     end
 end
