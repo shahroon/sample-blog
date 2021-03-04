@@ -1,9 +1,9 @@
 # README
 
-* Ruby: 2.5.1
+* Ruby: 2.6.6
 * No Test Suits for now 
 
-CONFIGURATION & OTHER INFO
+CONFIGURATION & OTHER INFO, assuming you know the db create and migration process.
 1. To create an Admin User run seed, 
     rake db:seed
 2. Admin Section has functionality to make more admins from existing users, through "Make Admin" link.
