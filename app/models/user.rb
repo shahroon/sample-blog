@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   has_many :posts
   validates_presence_of :firstname, :lastname
+
+  def name
+    firstname.camelize + ' ' + lastname.camelize
+  end
 end

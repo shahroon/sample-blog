@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
-  default_scope { order('created_at DESC') }
+  validates_presence_of :title, :content
+  paginates_per 5
 
   def is_owner(usr)
     self.user == usr

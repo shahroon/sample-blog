@@ -1,5 +1,13 @@
 <% if obj.is_owner(current_user) || (user_signed_in? && current_user.admin?) %>
     <!-- @wip - This line needs to be generic, no matter what the obj is, the path needs to be generated at run time -->
-    <td><%= link_to 'Edit', edit_post_path(obj) %></td>
-    <td><%= link_to 'Destroy', obj, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td>
+      <%= link_to edit_post_path(obj), title: "Edit Post" do %>
+          <i class="fas fa-user-edit"></i>
+      <% end %>
+    </td>
+    <td>
+      <%= link_to obj,  title: "Delete Post", method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="fas fa-trash"></i>
+      <% end %>
+    </td>
 <% end %>

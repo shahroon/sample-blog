@@ -3,6 +3,7 @@
     <h2 class="post-title"><%= link_to post.title, post_path(post) -%>
     </h2>
   </a>
+  <h3><%= post.content[0..50]%>...</h3>
   <p class="post-meta">Posted by
     <%= post.user.email %>
     <%= post.created_at.strftime("Published on %B, %d - %Y") %></p>

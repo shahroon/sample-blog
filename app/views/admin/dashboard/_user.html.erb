@@ -1,5 +1,7 @@
 <tr>
+  <td><%= user.name -%></td>
   <td><%= user.email -%></td>
-  <td><%= user.admin? -%></td>
-  <td><%= user.created_at -%></td>
+  <td><%= user.admin? ? "YES" : "NO" -%></td>
+  <td><%= user.created_at.strftime("%B, %d - %Y") -%></td>
+  <td><%= make_admin user %></td>
 </tr>

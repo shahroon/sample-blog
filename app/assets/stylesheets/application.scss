@@ -15,4 +15,8 @@
  */
 @import "bootstrap/scss/bootstrap.scss";
 @import "startbootstrap-clean-blog/scss/clean-blog.scss";
-@import "startbootstrap-sb-admin/src/scss/styles.scss";
+
+textarea {
+  width: 300px;
+  height: 150px;
+}
